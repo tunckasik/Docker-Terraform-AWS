@@ -33,14 +33,14 @@ Then, you will complete the Docker Networking and Container Deployment exercise 
     - List and inspect Docker networks.
     - Run the `alpine-2` container using the `none` network.
     - Create the `wp-mysql-network` network. Use `bridge` network, allocate subnet 182.18.0.1/24 and configure gateway 182.18.0.1
-    - Deploy a MySQL container named `mysql-db` on the `wp-mysql-network` network.
+    - Deploy a MySQL container named `mysql-db` on the `wp-mysql-network` network. Set the database password to use `db_pass123`. The environment variable to set is `MYSQL_ROOT_PASSWORD`.
     - Deploy a web application container named `webapp` on the `wp-mysql-network` network.
         The webapp service:
-        - Use command line to build the image for the web app.
-        - Mas port 38080 on the Docker host to port 8080 in the container.
-        - Set the DB_Host and DB_Password environment variables for the web app.
-        - Attach `wp-mysql-network` network.
-        - Link `mysql-db` to newly creating `webapp` container
+        - Use command line to build the image for the webapp.
+        - Map port 38080 on the Docker host to port 8080 in the container.
+        - Set the `DB_Host` with the value `mysql-db` and `DB_Password` with `db_pass123` environment variables for the web app.
+        - Attach `wp-mysql-network` network to the webapp container.
+        - Link `mysql-db` to newly creating webapp container.
     -Test the application by accessing it and its database by using the public IP address of the EC2 instance.
 1. After completing the exercise, clean up the containers and networks.
 
