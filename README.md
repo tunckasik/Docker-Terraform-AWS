@@ -14,7 +14,7 @@ Then, you will complete the Docker Networking and Container Deployment exercise 
 1. Create an AWS EC2 instance using Terraform with the following specifications:
     - Use Amazon Linux 2 as the base AMI.
     - Accept the instance type as a variable (default to t2.micro)
-    - S.
+    - Use variables as much as you can.
 
 1. Use a ```userdata.sh``` script to set up the Docker environment on the EC2 instance:
     - Install Docker and Docker Compose.
@@ -37,6 +37,7 @@ Then, you will complete the Docker Networking and Container Deployment exercise 
     - Deploy a web application container named `webapp` on the `wp-mysql-network` network.
         The webapp service:
         - Use command line to build the image for the webapp.
+        - Deploy a web application named `webapp` using the `kodekloud/simple-webapp-mysql` image.
         - Map port 38080 on the Docker host to port 8080 in the container.
         - Set the `DB_Host` with the value `mysql-db` and `DB_Password` with `db_pass123` environment variables for the web app.
         - Attach `wp-mysql-network` network to the webapp container.
