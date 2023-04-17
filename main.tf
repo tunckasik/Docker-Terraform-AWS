@@ -29,8 +29,14 @@ resource "aws_instance" "ec2" {
     Name = var.instance_name
   }
 }
-
-
+# To be able to get output of the default user name
+locals {
+  ami_users = {
+    "ami-04581fbf744a7d11f" = "ec2-user"
+    "ami-0f607975b6c3b6d67" = "ubuntu"
+    # Add more mappings if needed
+  }
+}
 # Security Group Settings
 
 resource "aws_security_group" "allow_tls" {
